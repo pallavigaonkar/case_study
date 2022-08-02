@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <form #loanEditForm="ngForm" (ngSubmit)="onSave(loanEditForm)">
+            <div class="form-group">
+                <label for="username">First Name</label>
+                <input 
+                    type="text" 
+                    id="firstName" 
+                    class="form-control" 
+                    ngModel name ="firstName"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="text">Last Name</label>
+                <input
+                    type="text"
+                    id="lastName"
+                    class="form-control"
+                    ngModel name="lastName"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="text">Loan Number</label>
+                <input
+                    type="text"
+                    id="loanNumber"
+                    class="form-control"
+                    ngModel name="loanNumber"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="text">Property Address</label>
+                <input
+                    type="text"
+                    id="propertyAddress"
+                    class="form-control"
+                    ngModel name="propertyAddress"
+                    required>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <button class="btn btn-primary" type="submit" [disabled]="!loanEditForm.valid">Submit</button>
+                    <button class="btn btn-danger" type="button" (click)="onCancel()">Cancel</button>
+                </div>
+                
+            </div>
+        </form>
+    </div>
+</div>

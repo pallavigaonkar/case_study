@@ -1,0 +1,31 @@
+
+<div class="container mt-5">
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Loan Number" #loanNumberInput>
+        <span class="input-group-btn">
+             <button class="btn btn-primary" type="button" (click)="onSearch()">Search</button>
+        </span>
+        <span class="input-group-btn">
+            <button class="btn btn-primary" type="button" (click)="onAdd()">Add</button>
+       </span>
+     </div>
+     <hr>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Loan Number</th>
+                </tr>
+            </thead>
+                <tr *ngFor="let loanApp of loanApplications">
+                    <td>{{loanApp.firstName}}</td>
+                    <td>{{loanApp.lastName}}</td>
+                    <td>{{loanApp.loanNumber}}</td> 
+                    <td colspan="2"><button class="btn btn-primary">EDIT</button><button class="btn btn-danger">DELETE</button></td>
+                </tr>
+            <tbody>
+                
+            </tbody>
+        </table>
+</div>
