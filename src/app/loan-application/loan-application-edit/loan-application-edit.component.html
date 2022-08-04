@@ -1,49 +1,77 @@
-<div class="row">
-    <div class="col-xs-12 col-md-6 col-md-offset-3">
-        <form #loanEditForm="ngForm" (ngSubmit)="onSave(loanEditForm)">
-            <div class="form-group">
-                <label for="username">First Name</label>
-                <input 
-                    type="text" 
-                    id="firstName" 
-                    class="form-control" 
-                    ngModel name ="firstName"
-                    required>
-            </div>
-            <div class="form-group">
-                <label for="text">Last Name</label>
-                <input
-                    type="text"
-                    id="lastName"
-                    class="form-control"
-                    ngModel name="lastName"
-                    required>
-            </div>
-            <div class="form-group">
-                <label for="text">Loan Number</label>
-                <input
-                    type="text"
-                    id="loanNumber"
-                    class="form-control"
-                    ngModel name="loanNumber"
-                    required>
-            </div>
-            <div class="form-group">
-                <label for="text">Property Address</label>
-                <input
-                    type="text"
-                    id="propertyAddress"
-                    class="form-control"
-                    ngModel name="propertyAddress"
-                    required>
-            </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <button class="btn btn-primary" type="submit" [disabled]="!loanEditForm.valid">Submit</button>
-                    <button class="btn btn-danger" type="button" (click)="onCancel()">Cancel</button>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-6 col-md-offset-3">
+            <h3>{{ editMode ? 'Update Loan' : 'Add Loan' }}</h3>
+            <hr>
+            <form #f="ngForm" (ngSubmit)="onSave(f)">
+                <div class="form-group">
+                    <label for="username">First Name</label>
+                    <input 
+                        type="text" 
+                        id="firstName" 
+                        class="form-control" 
+                        ngModel name ="firstName"
+                        required>
                 </div>
-                
-            </div>
-        </form>
+                <div class="form-group">
+                    <label for="text">Last Name</label>
+                    <input
+                        type="text"
+                        id="lastName"
+                        class="form-control"
+                        ngModel name="lastName"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label for="text">Loan Number</label>
+                    <input
+                        type="text"
+                        id="loanNumber"
+                        class="form-control"
+                        ngModel name="loanNumber"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label for="text">Property Address</label>
+                    <input
+                        type="text"
+                        id="propertyAddress"
+                        class="form-control"
+                        ngModel name="propertyAddress"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label for="text">Loan Amount</label>
+                    <input
+                        type="text"
+                        id="loanAmount"
+                        class="form-control"
+                        ngModel name="loanAmount">
+                </div>
+                <div class="form-group">
+                    <label for="text">Loan Type</label>
+                    <input
+                        type="text"
+                        id="loanType"
+                        class="form-control"
+                        ngModel name="loanType">
+                </div>
+                <div class="form-group">
+                    <label for="text">Loan Term</label>
+                    <input
+                        type="text"
+                        id="lastName"
+                        class="form-control"
+                        ngModel name="loanTerm">
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <button class="btn btn-primary" type="submit">{{ editMode ? 'Update' : 'Add' }}</button>
+                        <button class="btn btn-danger" type="button" routerLink="../">Cancel</button>
+                    </div>
+                    
+                </div>
+            </form>
+        </div>
     </div>
-</div>
+    </div>

@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     }
     const username = form.value.username;
     const password = form.value.password;
-    this.loginService.login(username, password).subscribe(
+    /*this.loginService.login(username, password).subscribe(
       resData=>{
         console.log(resData);
         
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
       error => {
         this.error = error;
       }
-    )
+    )*/
     form.reset();
   }
 

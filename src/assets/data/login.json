@@ -1,6 +1,22 @@
-{
-            "id":1,
-			"username": "Pallavi",
-            "role":"admin"
-
-	}
+[
+    {
+      "id": 1,
+      "lastName": "Fernandes",
+      "firstName": "Jack",
+      "loanNumber": "1009788",
+      "propertyAddress":"abc",
+      "loanAmount": "500000",
+      "loanType": "Home Loan",
+      "loanTerm": "10"
+    },
+    {
+        "id":2,
+        "lastName": "Williams",
+        "firstName": "John",
+        "loanNumber": "554444",
+        "propertyAddress":"tgbnhh hjj",
+        "loanAmount": "100000",
+        "loanType": "Car Loan",
+        "loanTerm": "10"
+      }
+  ]

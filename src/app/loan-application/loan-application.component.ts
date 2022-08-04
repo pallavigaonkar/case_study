@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, Output, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoanApplication } from './loan-application.model';
 import { LoanApplicationService } from './loan-application.service';
@@ -11,6 +11,7 @@ import { LoanApplicationService } from './loan-application.service';
 export class LoanApplicationComponent implements OnInit {
   loanApplications: LoanApplication[];
   @ViewChild('loanNumberInput') loanNumberInputRef: ElementRef;
+  loanApp: LoanApplication;
   constructor(private loanAppService: LoanApplicationService, private router: Router, private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -20,11 +21,9 @@ export class LoanApplicationComponent implements OnInit {
 
   onSearch(){
     const loanNumber = this.loanNumberInputRef.nativeElement.value;
-    this.loanAppService.fetchLoanApplications(loanNumber).subscribe(
+    this.loanAppService.fetch(loanNumber).subscribe(
       resData=>{
-        console.log(resData);
         this.loanApplications = resData;
-        console.log('applications==',this.loanApplications);
       },
       error => {
         console.log(error);
@@ -32,7 +31,35 @@ export class LoanApplicationComponent implements OnInit {
     );
   }
 
-  onAdd(){
-    this.router.navigate(['loan-application-edit'], {relativeTo:this.activatedRoute});
+  editLoanApplication(loanApp: LoanApplication){
+    console.log(loanApp);
+    this.loanAppService.setEditMode(true);
+    this.loanAppService.setLoanApp(loanApp);
+    this.router.navigate(['loan-application/edit']);
   }
+
+  onAdd() {
+    this.router.navigate(['loan-application/new']);
+    this.loanAppService.setEditMode(false);
+  }
+
+  deleteLoanApplication(id: number) {
+    this.loanAppService.delete(id).subscribe(
+      resData=>{
+        console.log(resData);
+        this.loanAppService.fetch().subscribe(
+          resData=>{
+            this.loanApplications = resData;
+          },
+          error => {
+            console.log(error);
+          }
+        );
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
 }

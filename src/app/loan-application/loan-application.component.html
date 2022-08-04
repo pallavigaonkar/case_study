@@ -10,22 +10,33 @@
        </span>
      </div>
      <hr>
-        <table class="table table-striped">
+        <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Loan Number</th>
+                    <th>Loan Amount</th>
+                    <th>Loan Type</th>
+                    <th>Loan Term</th>
+                    <th>Action</th>
                 </tr>
             </thead>
                 <tr *ngFor="let loanApp of loanApplications">
                     <td>{{loanApp.firstName}}</td>
                     <td>{{loanApp.lastName}}</td>
-                    <td>{{loanApp.loanNumber}}</td> 
-                    <td colspan="2"><button class="btn btn-primary">EDIT</button><button class="btn btn-danger">DELETE</button></td>
+                    <td>{{loanApp.loanNumber}}</td>
+                    <td>{{loanApp.loanAmount}}</td> 
+                    <td>{{loanApp.loanType}}</td> 
+                    <td>{{loanApp.loanTerm}}</td> 
+                    <td>
+                        <button class="btn btn-primary" (click)="editLoanApplication(loanApp)" >EDIT</button>
+                        <button class="btn btn-danger" (click)="deleteLoanApplication(loanApp.id)">DELETE</button>
+                    </td>
                 </tr>
             <tbody>
                 
             </tbody>
         </table>
 </div>
+
